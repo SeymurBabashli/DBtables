@@ -5,6 +5,7 @@ DROP TABLE PROVIDER;
 DROP TABLE MEMBERS;
 DROP TABLE BORROW;
 DROP TABLE EQUIPMENT;
+DROP TABLE PENALTIES;
 DROP TABLE STAFF_TYPE;
 DROP TABLE MEMBER_TYPE; 
 DROP TABLE SHELF;
@@ -415,3 +416,39 @@ INSERT INTO FINANCE VALUES (7, 'Penalty of room', 20, TO_DATE('28-DEC-2018', 'DD
 INSERT INTO FINANCE VALUES (8, 'Penalty of CD', 15, TO_DATE('29-DEC-2018', 'DD-MON-YYYY'));
 INSERT INTO FINANCE VALUES (9, 'Cleaning expense', 700,TO_DATE('04-DEC-2018', 'DD-MON-YYYY'));
 INSERT INTO FINANCE VALUES (10, 'Salary of tecnicians', 850, TO_DATE('06-DEC-2018', 'DD-MON-YYYY'));
+                                                                     
+                                                                     
+
+CREATE TABLE PENALTIES (
+    PENALTY_ID int NOT NULL,
+    MEMBER_ID int NOT NULL,
+    BARROW_ID int NOT NULL,
+    DATES DATE NULL,
+    FINE int NOT NULL,
+    PAID Number(1) NULL,
+    PRIMARY KEY (PENALTY_ID),    
+    FOREIGN KEY (BORROW_ID) REFERENCES BORROW(BORROW_ID),
+    FOREIGN KEY (MEMBER_ID) REFERENCES MEMBER(MEMBER_ID)
+);
+
+INSERT INTO PENALTIES VALUES (1, 2, 3, TO_DATE('17-DEC-2018', 'DD-MON-YYYY'), 15, 1);
+INSERT INTO PENALTIES VALUES (2, 1, 15, TO_DATE('15-JAN-2018', 'DD-MON-YYYY'), 20, 1);
+INSERT INTO PENALTIES VALUES (3, 9, 5, TO_DATE('7-DEC-2018', 'DD-MON-YYYY'), 5, NULL );
+INSERT INTO PENALTIES VALUES (4, 14, 1, TO_DATE('22-MAY-2018', 'DD-MON-YYYY'), 5, 1);
+INSERT INTO PENALTIES VALUES (5, 7, 13, TO_DATE('3-APR-2018', 'DD-MON-YYYY'), 15, 1);
+INSERT INTO PENALTIES VALUES (6, 8, 8, TO_DATE('17-DEC-2018', 'DD-MON-YYYY'), 60, 0 );
+INSERT INTO PENALTIES VALUES (7, 6, 7, TO_DATE('5-OCT-2018', 'DD-MON-YYYY'), 25, 1);
+INSERT INTO PENALTIES VALUES (8, 2, 2, TO_DATE('11-DEC-2018', 'DD-MON-YYYY'), 125, 0);
+INSERT INTO PENALTIES VALUES (9, 3, 3, TO_DATE('17-DEC-2018', 'DD-MON-YYYY'), 175, 0 );
+INSERT INTO PENALTIES VALUES (10, 13, 6, TO_DATE('16-OCT-2018', 'DD-MON-YYYY'), 85, 1);
+INSERT INTO PENALTIES VALUES (11, 5, 14, TO_DATE('1-DEC-2018', 'DD-MON-YYYY'), 2, 0);
+INSERT INTO PENALTIES VALUES (12, 15, 5, TO_DATE('6-FEB-2018', 'DD-MON-YYYY'), 35, 1 );
+INSERT INTO PENALTIES VALUES (13, 12, 11, TO_DATE('7-FEB-2018', 'DD-MON-YYYY'), 47, 1);
+INSERT INTO PENALTIES VALUES (14, 10, 12, TO_DATE('5-SEP-2018', 'DD-MON-YYYY'), 50, 0);
+INSERT INTO PENALTIES VALUES (15, 11, 4, TO_DATE('29-JAN-2018', 'DD-MON-YYYY'), 55, 1 );                                                                     
+                                                                     
+                                                                     
+                                                                     
+                                                                     
+                                                                     
+                                                                     
